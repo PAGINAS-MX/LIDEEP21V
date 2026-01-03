@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lideep 21V | Experiencia Interactiva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .chart-container { 
+            position: relative; 
+            width: 100%; 
+            max-width: 600px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            height: 300px; 
+        }
+        .active-tab {
+            background-color: #f59e0b;
+            color: white;
+            border-color: #f59e0b;
+        }
+        .inactive-tab {
+            background-color: white;
+            color: #4b5563;
+            border-color: #e5e7eb;
+        }
+        .fade-in {
+            animation: fadeIn 0.4s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .img-container {
+            border-radius: 1rem;
+            overflow: hidden;
+            background: #f1f5f9;
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Navegación -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-slate-900 tracking-tight">LIDEEP<span class="text-amber-500">21V</span></span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <button onclick="scrollToSection('specs')" class="text-slate-600 hover:text-amber-600 transition">Especificaciones</button>
+                    <button onclick="scrollToSection('performance')" class="text-slate-600 hover:text-amber-600 transition">Torque</button>
+                    <button onclick="scrollToSection('kit')" class="text-slate-600 hover:text-amber-600 transition">El Kit</button>
+                </div>
+                <div class="flex items-center">
+                    <!-- Botón actualizado con el texto solicitado -->
+                    <a href="https://mercadolibre.com/sec/1Yqncqa" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded transition shadow-lg transform hover:-translate-y-0.5 text-sm md:text-base">
+                        Comprar ahora en Mercado Libre
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <header class="relative bg-white overflow-hidden border-b border-slate-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+                <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                    <div class="sm:text-center lg:text-left">
+                        <h1 class="text-4xl tracking-tight font-extrabold text-slate-900 sm:text-5xl md:text-6xl">
+                            <span class="block text-slate-900">Poder Inalámbrico</span>
+                            <span class="block text-amber-500">320 N.m Reales</span>
+                        </h1>
+                        <p class="mt-3 text-base text-slate-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-auto">
+                            Tecnología Lideep para profesionales. Atornillador y llave de impacto en un solo cuerpo ergonómico con motor de alto rendimiento.
+                        </p>
+                        <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                            <a href="https://mercadolibre.com/sec/1Yqncqa" target="_blank" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-slate-900 hover:bg-slate-800 md:py-4 md:text-lg md:px-10 shadow-xl">
+                                Ver en Mercado Libre
+                            </a>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 bg-slate-100 flex items-center justify-center">
+            <img src="https://i.postimg.cc/dQjycRKZ/D-NQ-NP-2X-975004-CBT92950967168-092025-F-pistola-de-impacto-llave-electrica-taladroinalambrico-lide.webp" alt="Pistola Lideep Hero" class="object-contain w-full h-full p-4 lg:p-12">
+        </div>
+    </header>
+
+    <!-- Sección de Ingeniería Interactiva -->
+    <section id="specs" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-amber-600 font-bold uppercase tracking-widest text-sm mb-2">Ingeniería Superior</h2>
+                <p class="text-3xl font-extrabold text-slate-900">Diseño para Trabajo Pesado</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-lg transition">
+                    <div class="img-container h-48 mb-4">
+                        <img src="https://i.postimg.cc/NGkHv8w9/Whisk-8e393c7d494c7d8917c48f3dcb20c6bedr.png" alt="Motor Lideep" class="product-img" style="object-fit: contain;">
+                    </div>
+                    <h3 class="font-bold text-xl mb-2 text-slate-900">Motor de Alto Torque</h3>
+                    <p class="text-slate-600 text-sm">Núcleo de cobre optimizado para disipar calor y mantener la potencia en usos prolongados.</p>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-lg transition">
+                    <div class="img-container h-48 mb-4">
+                        <img src="https://i.postimg.cc/qBx3HcdB/Whisk-98812af11704717a2ff435f9d9be41addr.png" alt="Mandril Dual" class="product-img" style="object-fit: contain;">
+                    </div>
+                    <h3 class="font-bold text-xl mb-2 text-slate-900">Mandril 2 en 1</h3>
+                    <p class="text-slate-600 text-sm">Inserta dados de 1/2" o puntas hexagonales de 1/4" sin necesidad de molestos adaptadores.</p>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-lg transition">
+                    <div class="img-container h-48 mb-4">
+                        <img src="https://i.postimg.cc/9XY7HPjz/Whisk-b3fec23f1b4222fbee04ed6091c7e0a4dr.png" alt="Control de Velocidad" class="product-img" style="object-fit: contain;">
+                    </div>
+                    <h3 class="font-bold text-xl mb-2 text-slate-900">Panel Inteligente</h3>
+                    <p class="text-slate-600 text-sm">Gatillo de velocidad variable y modos de operación para mayor control sobre el torque.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resalte de Desempeño con Gráfica -->
+    <section id="performance" class="py-20 bg-slate-900 text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-black mb-6 uppercase">Torque que hace la diferencia</h2>
+                    <p class="text-lg text-slate-400 mb-8">
+                        Mientras que los atornilladores convencionales sufren con pijas largas, el sistema de impacto de la LIDEEP 21V entrega 320 N.m constantes.
+                    </p>
+                    
+                    <div class="chart-container bg-slate-800/50 p-6 rounded-3xl border border-slate-700">
+                        <canvas id="torqueChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="img-container aspect-square bg-slate-800 border-4 border-slate-700 shadow-2xl">
+                        <img src="https://i.postimg.cc/tRNxGdHg/Whisk-c9ce00effb9793fa6c24aa21e4aaeecfdr.png" alt="Lideep en acción" class="product-img">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-amber-500 text-white p-6 rounded-2xl shadow-2xl transform rotate-3">
+                        <span class="block text-4xl font-black italic">320Nm</span>
+                        <span class="text-xs font-bold uppercase tracking-widest">Poder Certificado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detalle de Batería y Energía -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="img-container h-96">
+                    <img src="https://i.postimg.cc/wxQmY5dv/Whisk-d36534fd0c74f9a9eef40f961b44ef1edr.png" alt="Batería 21V Detalle" class="product-img" style="object-fit: contain; padding: 20px;">
+                </div>
+                <div>
+                    <h2 class="text-3xl font-black text-slate-900 mb-4">Energía Inagotable de 21V</h2>
+                    <p class="text-slate-600 text-lg mb-6 leading-relaxed">
+                        Nuestras baterías de Ion-Litio están diseñadas con celdas de alta densidad para ofrecer una curva de descarga plana: la potencia no cae hasta que la batería se agota por completo.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-slate-800 font-semibold">
+                            <span class="w-8 h-8 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mr-3">✓</span>
+                            Incluye 2 Baterías para trabajo continuo.
+                        </li>
+                        <li class="flex items-center text-slate-800 font-semibold">
+                            <span class="w-8 h-8 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mr-3">✓</span>
+                            Cargador rápido incluido en el kit.
+                        </li>
+                        <li class="flex items-center text-slate-800 font-semibold">
+                            <span class="w-8 h-8 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mr-3">✓</span>
+                            Indicador de carga en tiempo real.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- El Kit Completo -->
+    <section id="kit" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black text-slate-900 mb-4 uppercase">¿Qué hay en el maletín?</h2>
+                <p class="text-slate-500">Todo lo necesario para empezar a trabajar desde el primer minuto.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-4 space-y-3">
+                    <button onclick="showKitDetail('sockets')" class="kit-nav-btn w-full text-left p-5 rounded-xl bg-white border-2 border-transparent hover:border-slate-200 shadow-sm transition">
+                        <span class="font-bold block text-lg">7 Dados de Impacto</span>
+                        <span class="text-xs text-slate-400">Desde 8mm hasta 22mm</span>
+                    </button>
+                    <button onclick="showKitDetail('case')" class="kit-nav-btn w-full text-left p-5 rounded-xl bg-white border-2 border-amber-500 shadow-md transition">
+                        <span class="font-bold block text-lg">Maletín de Resina</span>
+                        <span class="text-xs text-slate-400">Protección grado industrial</span>
+                    </button>
+                    <button onclick="showKitDetail('power')" class="kit-nav-btn w-full text-left p-5 rounded-xl bg-white border-2 border-transparent hover:border-slate-200 shadow-sm transition">
+                        <span class="font-bold block text-lg">Doble 21V Power</span>
+                        <span class="text-xs text-slate-400">Autonomía duplicada</span>
+                    </button>
+                </div>
+
+                <div class="lg:col-span-8 bg-white rounded-3xl p-10 shadow-xl border border-slate-100">
+                    <div id="kit-detail-content" class="fade-in flex flex-col md:flex-row items-center gap-10">
+                        <div class="img-container w-full md:w-1/2 h-64">
+                            <img id="kit-img" src="https://i.postimg.cc/dQjycRKZ/D-NQ-NP-2X-975004-CBT92950967168-092025-F-pistola-de-impacto-llave-electrica-taladroinalambrico-lide.webp" alt="Kit Completo Lideep" class="product-img" style="object-fit: contain;">
+                        </div>
+                        <div class="w-full md:w-1/2">
+                            <h3 id="kit-title" class="text-3xl font-bold mb-4 text-slate-900">Maletín de Resina</h3>
+                            <p id="kit-desc" class="text-slate-600 text-lg leading-relaxed">
+                                Maletín rígido diseñado para el transporte pesado. Protege tu herramienta del polvo y golpes accidentales en el lugar de trabajo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Final -->
+    <footer class="bg-slate-950 text-white py-24 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-5xl font-black mb-12 italic tracking-tighter uppercase">LIDEEP PROFESSIONAL</h2>
+            
+            <div class="mb-12">
+                <div class="img-container max-w-lg mx-auto bg-white p-4 shadow-2xl transform hover:scale-105 transition duration-500">
+                    <img src="https://i.postimg.cc/dQjycRKZ/D-NQ-NP-2X-975004-CBT92950967168-092025-F-pistola-de-impacto-llave-electrica-taladroinalambrico-lide.webp" alt="Lideep Profesional Kit" class="product-img" style="object-fit: contain;">
+                </div>
+            </div>
+
+            <a href="https://mercadolibre.com/sec/1Yqncqa" target="_blank" class="inline-block bg-amber-500 hover:bg-amber-600 text-white font-black py-5 px-16 rounded-full text-2xl shadow-2xl transition transform hover:scale-105">
+                ¡ORDENAR AHORA!
+            </a>
+
+            <div class="mt-12 flex flex-wrap justify-center gap-6 md:gap-12 text-slate-400 text-sm font-bold uppercase tracking-widest">
+                <div class="flex items-center">
+                    <span class="text-amber-500 mr-2 text-xl">🛡️</span> Garantía Lideep
+                </div>
+                <div class="flex items-center">
+                    <span class="text-amber-500 mr-2 text-xl">🚚</span> Envío Inmediato
+                </div>
+                <div class="flex items-center">
+                    <span class="text-amber-500 mr-2 text-xl">💳</span> Pago Seguro
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const kitDetails = {
+            sockets: { 
+                title: "7 Dados de Impacto", 
+                img: "https://i.postimg.cc/CMsqpCVk/Whisk-2b0486744558676aca2437a1d70486c3dr.png", 
+                desc: "Accesorios de cromo-vanadio endurecido. Listos para soportar las vibraciones del sistema de impacto sin barrerse ni romperse." 
+            },
+            case: { 
+                title: "Maletín de Resina", 
+                img: "https://i.postimg.cc/dQjycRKZ/D-NQ-NP-2X-975004-CBT92950967168-092025-F-pistola-de-impacto-llave-electrica-taladroinalambrico-lide.webp", 
+                desc: "Maletín rígido diseñado para el transporte pesado. Protege tu herramienta del polvo y golpes accidentales en el lugar de trabajo." 
+            },
+            power: { 
+                title: "Doble 21V Power", 
+                img: "https://i.postimg.cc/wxQmY5dv/Whisk-d36534fd0c74f9a9eef40f961b44ef1edr.png", 
+                desc: "Nunca te quedes a medias. Con dos baterías de 21V, siempre tendrás una cargada lista para el relevo." 
+            }
+        };
+
+        function scrollToSection(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
+
+        function showKitDetail(key) {
+            const btns = document.querySelectorAll('.kit-nav-btn');
+            btns.forEach(btn => {
+                if(btn.getAttribute('onclick').includes(key)) {
+                    btn.classList.add('border-amber-500', 'shadow-md');
+                    btn.classList.remove('border-transparent', 'shadow-sm');
+                } else {
+                    btn.classList.remove('border-amber-500', 'shadow-md');
+                    btn.classList.add('border-transparent', 'shadow-sm');
+                }
+            });
+
+            const content = document.getElementById('kit-detail-content');
+            content.classList.remove('fade-in');
+            void content.offsetWidth;
+            content.classList.add('fade-in');
+
+            const data = kitDetails[key];
+            document.getElementById('kit-img').src = data.img;
+            document.getElementById('kit-title').innerText = data.title;
+            document.getElementById('kit-desc').innerText = data.desc;
+        }
+
+        window.onload = function() {
+            const ctx = document.getElementById('torqueChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Llave Manual', 'Taladro 12V', 'Atornillador 18V', 'LIDEEP 21V'],
+                    datasets: [{
+                        label: 'N.m',
+                        data: [20, 35, 60, 320],
+                        backgroundColor: ['#475569', '#64748b', '#94a3b8', '#f59e0b'],
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { grid: { color: '#334155' }, ticks: { color: '#94a3b8' } },
+                        x: { ticks: { color: '#fff', font: { weight: 'bold' } } }
+                    }
+                }
+            });
+            showKitDetail('case');
+        };
+    </script>
+</body>
+</html>
